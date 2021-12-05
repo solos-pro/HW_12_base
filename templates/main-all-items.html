@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+{% for e in entities %}
+<div class="items__item item">
+<a href="/card/{{ e.id }}" class="item__wrapper">
+<div class="item__img-wrapper">
+<img src="../static/{{ e.img }}" srcset="../static/{{ e.img_set }}" alt="" class="item__img" />
+</div>
+<p class="item__title">{{ e.name }}</p>
+<p class="item__descr">{{ e.cpu }} {{ e.ram }} {{ e.video }}</p>
+<p class="item__price">{{ e.price }}</p>
+</a>
+</div>
+{% endfor %}
+
+
+</body>
+</html>
