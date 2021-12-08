@@ -1,25 +1,6 @@
-'''from flask import Flask, request, render_template
-import json, requests     # for .json
+import json, requests
 
-app = Flask(__name__)
-
-
-@app.route('/')
-def index():
-    with open('settings.json') as f:
-        entities = json.load(f)
-        return render_template("main-all-items.html", entities=entities)
-
-
-
-
-
-if __name__ == "__main__":
-    app.run()'''
-
-import json
-
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -30,13 +11,19 @@ def index():
         settings = json.load(f)
     return render_template("index.html", **settings)
 
-@app.route('/candidate/<id>')
-def prof():
+@app.route('/candidate/<id>/')
+def prof(id):
     with open("candidates.json") as f:
         candidates = json.load(f)
     for candidate in candidates:
-        if candidate['id'] == int(id):
-            return render_template('candidate.html', **candidate)
+        if candidate["id"] == int(id):
+            return render_template("candidate.html", **candidate)
+
+@app.route('/candidate/<id>/')
+def prof(id):
+    with open("candidates.json") as f:
+        candidates = json.load(f)
+    return render_template("list.html", users=candidates)
 
 
 if __name__ == "__main__":
