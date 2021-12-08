@@ -19,8 +19,8 @@ def prof(id):
         if candidate["id"] == int(id):
             return render_template("candidate.html", **candidate)
 
-@app.route('/candidate/<id>/')
-def prof(id):
+@app.route('/list/')
+def candidates_():
     with open("candidates.json") as f:
         candidates = json.load(f)
     return render_template("list.html", users=candidates)
