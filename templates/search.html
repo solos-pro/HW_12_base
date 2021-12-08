@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/search/">
+    <input type="text" class="text-input" placeholder="Введите имя для поиска" name="name">
+</form><br>
+
+Количество кондидатов{{cnt}}
+<br>
+{% for user in users %}
+{{user}}
+{% endfor %}
+</body>
+</html>
