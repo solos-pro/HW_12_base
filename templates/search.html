@@ -5,14 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/search/">
-    <input type="text" class="text-input" placeholder="Введите имя для поиска" name="name">
-</form><br>
+    <form action="/search/">
+        <input type="text" class="text-input" placeholder="Введите имя для поиска" name="name">
+    </form><br>
 
-Количество кондидатов{{cnt}}
-<br>
-{% for user in users %}
-{{user}}
-{% endfor %}
+    Количество кандидатов: {{cnt}}
+    <br>
+    <ol>
+        {% for user in users %}
+        <li>{{user}}</li>
+        <br>
+        {% endfor %}
+    </ol>
 </body>
 </html>

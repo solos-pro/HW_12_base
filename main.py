@@ -38,6 +38,22 @@ def search_page():
 
     return render_template("search.html", users=users, cnt=len(users))
 
+@app.route("/skill/<skill>")
+def find_skill(skill):
+    with open("settings.json") as f:
+        settings = json.load(f)
+    with open("candidates.json") as f:
+        candidates = json.load(f)
+    users = []
+    cnt = 0
+    for candidate in candidates:
+        if skill in candidate["skills"]:
+            users.append(candidate["name"])
+            cnt += 1
+            if settings["limit"] == cnt:
+                return render_template("search.html", users=users, cnt=len(users))
+    return render_template("search.html", users=users, cnt=len(users))
+
 
 if __name__ == "__main__":
     app.run()
